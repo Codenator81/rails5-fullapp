@@ -46,6 +46,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    bcrypt (3.1.11)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -116,7 +117,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.11.2)
-    mysql2 (0.4.3)
+    mysql2 (0.4.4)
     nenv (0.3.0)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
@@ -214,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootstrap-sass (>= 3.2.0.0)
   byebug
   coffee-rails (~> 4.1.0)
