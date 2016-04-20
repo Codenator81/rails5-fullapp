@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title><%= full_title(yield(:title))%></title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
   </head>
+
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "sample app", root_path, id: "logo" %> <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-          <li><%= link_to "Log in", '#' %></li>
-        </ul> </nav>
+
+  <header class="top-bar">
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text"><%= link_to "sample app", root_path, id: "logo" %></li>
+          </ul>
+        </div>
+        <nav class="top-bar-right">
+          <ul class="menu">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", help_path %></li>
+            <li><%= link_to "Log in", '#' %></li>
+          </ul>
+        </nav>
       </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
+  </header>
+  <div class="container">
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
+
   </body>
 </html>
