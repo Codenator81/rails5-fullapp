@@ -22,10 +22,24 @@
         </ul>
       </div>
       <nav class="top-bar-right">
-        <ul class="menu">
+        <ul class="dropdown menu" data-dropdown-menu>
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
-          <li><%= link_to "Log in", '#' %></li>
+          <% if logged_in? %>
+              <li><%= link_to "Users", '#' %></li>
+              <li>
+                <a href="#">Account</a>
+                <ul class="menu">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li><%= link_to "Settings", '#' %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %> </li>
+                </ul>
+              </li>
+          <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
@@ -34,7 +48,7 @@
 <div class="row">
   <div class="small-12 columns">
     <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
